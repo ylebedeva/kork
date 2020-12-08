@@ -26,8 +26,8 @@ ext {
     spek2            : "2.0.9",
     springBoot       : "2.3.12.RELEASE",
     springCloud      : "Hoxton.SR4",
-    springfoxSwagger : "2.9.2",
-    swagger          : "1.5.20", //this should stay in sync with what springfoxSwagger expects
+    springfoxSwagger : "3.0.0",
+    swagger          : "2.1.2", //this should stay in sync with what springfoxSwagger expects
     // tomcat (v9.0.31) was included via spring boot and upgrading spring boot
     // from 2.2.5.RELEASE (tomcat v9.0.31 used here) to 2.5.0 (tomcat v9.0.48)
     // makes a few breaking changes, requires adding new dependencies, and
@@ -141,7 +141,7 @@ dependencies {
     api("io.mockk:mockk:1.10.5")
     api("io.springfox:springfox-swagger-ui:${versions.springfoxSwagger}")
     api("io.springfox:springfox-swagger2:${versions.springfoxSwagger}")
-    api("io.swagger:swagger-annotations:${versions.swagger}")
+    api("io.swagger.core.v3:swagger-annotations:${versions.swagger}")
     api("javax.annotation:javax.annotation-api:1.3.2")
     api("javax.xml.bind:jaxb-api:2.3.1")
     api("mysql:mysql-connector-java:8.0.20")
