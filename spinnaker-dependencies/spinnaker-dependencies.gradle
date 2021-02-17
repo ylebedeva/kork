@@ -24,8 +24,8 @@ ext {
     spectator        : "1.0.6",
     spek             : "1.1.5",
     spek2            : "2.0.9",
-    spring           : "5.3.2", // this should be kept in sync with spring-boot / removed once the need for a version override is gone
-    springBoot       : "2.4.1",
+    spring           : "5.3.3", // this should be kept in sync with spring-boot / removed once the need for a version override is gone
+    springBoot       : "2.4.2",
     springCloud      : "Hoxton.SR6",
     springSecurity   : "5.4.2",
     springfoxSwagger : "3.0.0",
@@ -57,7 +57,7 @@ dependencies {
   //kotlinVersion comes from gradle.properties since we have kotlin code in
   // this project and need to configure gradle plugins etc.
   api(platform("org.jetbrains.kotlin:kotlin-bom:$kotlinVersion"))
-  api(platform("org.junit:junit-bom:5.6.3"))
+  api(platform("org.junit:junit-bom:5.7.0"))
   api(platform("com.fasterxml.jackson:jackson-bom:2.13.2.2"))
   api(platform("io.zipkin.brave:brave-bom:${versions.brave}"))
   api(platform("org.springframework:spring-framework-bom:${versions.spring}"))
@@ -175,9 +175,6 @@ dependencies {
     api("org.springframework.boot:spring-boot-configuration-processor:${versions.springBoot}")
     api("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.5.RELEASE")
     api("org.testng:testng:7.4.0") // TODO: remove this with upgrade of spring-boot version to 2.5.0 or with upgrade of groovy-all to 3.0.8
-    api("org.springframework.security:spring-security-core:${versions.springSecurity}")
-    api("org.springframework.security:spring-security-config:${versions.springSecurity}")
-    api("org.springframework.security:spring-security-saml2-service-provider:${versions.springSecurity}")
     api("org.threeten:threeten-extra:1.0")
     api("org.apache.tomcat.embed:tomcat-embed-core:${versions.tomcat}")
     api("org.apache.tomcat.embed:tomcat-embed-el:${versions.tomcat}")
