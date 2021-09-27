@@ -24,7 +24,8 @@ ext {
     spectator        : "1.0.6",
     spek             : "1.1.5",
     spek2            : "2.0.9",
-    springBoot       : "2.3.12.RELEASE",
+    spring           : "5.2.12.RELEASE", // this should be kept in sync with spring-boot / removed once the need for a version override is gone
+    springBoot       : "2.2.13.RELEASE",
     springCloud      : "Hoxton.SR4",
     springfoxSwagger : "3.0.0",
     swagger          : "2.1.2", //this should stay in sync with what springfoxSwagger expects
@@ -57,7 +58,7 @@ dependencies {
   api(platform("org.jetbrains.kotlin:kotlin-bom:$kotlinVersion"))
   api(platform("org.junit:junit-bom:5.6.3"))
   api(platform("com.fasterxml.jackson:jackson-bom:2.12.3"))
-  api(platform("io.zipkin.brave:brave-bom:${versions.brave}"))
+  api(platform("org.springframework:spring-framework-bom:${versions.spring}"))
   api(platform("org.springframework.boot:spring-boot-dependencies:${versions.springBoot}"))
   api(platform("com.amazonaws:aws-java-sdk-bom:${versions.aws}"))
   api(platform("org.springframework.cloud:spring-cloud-dependencies:${versions.springCloud}"))
