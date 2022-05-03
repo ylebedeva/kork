@@ -24,6 +24,9 @@ plugins {
 allprojects {
   version = '7.136.1-PD'
   apply plugin: "io.spinnaker.project"
+  spinnakerCodeStyle {
+    enabled = false
+  }
 }
 
 subprojects {
