@@ -34,7 +34,7 @@ ext {
     // makes a few breaking changes, requires adding new dependencies, and
     // changing code. So instead updating tomcat to v9.0.48 as a workaround
     // until we move spring boot to at least v2.5.0.
-    tomcat           : "9.0.48"
+    tomcat           : "9.0.54"
   ]
 }
 
@@ -57,7 +57,8 @@ dependencies {
   // this project and need to configure gradle plugins etc.
   api(platform("org.jetbrains.kotlin:kotlin-bom:$kotlinVersion"))
   api(platform("org.junit:junit-bom:5.6.3"))
-  api(platform("com.fasterxml.jackson:jackson-bom:2.12.3"))
+  api(platform("com.fasterxml.jackson:jackson-bom:2.13.2.2"))
+  api(platform("io.zipkin.brave:brave-bom:${versions.brave}"))
   api(platform("org.springframework:spring-framework-bom:${versions.spring}"))
   api(platform("org.springframework.boot:spring-boot-dependencies:${versions.springBoot}"))
   api(platform("com.amazonaws:aws-java-sdk-bom:${versions.aws}"))
@@ -163,6 +164,7 @@ dependencies {
     api("org.jetbrains.spek:spek-subject-extension:${versions.spek}")
     api("org.jooq:jooq:${versions.jooq}")
     api("org.jooq:jooq-kotlin:${versions.jooq}")
+    api("org.jsoup:jsoup:1.14.2")
     api("org.objenesis:objenesis:2.5.1")
     api("org.pf4j:pf4j:3.2.0")
     api("org.pf4j:pf4j-update:2.3.0")
