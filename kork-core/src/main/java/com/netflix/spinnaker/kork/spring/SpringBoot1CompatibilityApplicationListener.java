@@ -28,6 +28,9 @@ public class SpringBoot1CompatibilityApplicationListener
 
     // Put spring endpoints on / instead of /actuator (for /health backwards compat).
     setIfMissing("management.endpoints.web.base-path", "/");
+
+    // Changed in 2.6 to default to false
+    setIfMissing("spring.main.allow-circular-references", "true");
   }
 
   private void setIfMissing(String property, String value) {
