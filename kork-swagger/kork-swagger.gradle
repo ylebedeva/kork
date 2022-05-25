@@ -3,7 +3,7 @@ apply plugin: "java-library"
 dependencies {
   api(platform(project(":spinnaker-dependencies")))
 
-  api "io.swagger:swagger-annotations"
+  api "io.swagger.core.v3:swagger-annotations"
 
   implementation "com.google.guava:guava"
   implementation "org.springframework.boot:spring-boot-autoconfigure"

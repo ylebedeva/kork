@@ -7,33 +7,35 @@ javaPlatform {
 ext {
   versions = [
     arrow            : "0.13.2",
-    aws              : "1.12.135",
+    aws              : "1.12.221",
     bouncycastle     : "1.64", // 1.64 removes CVE-2019-17359
     brave            : "5.12.3",
     groovy           : "2.5.14", //this needs to keep in sync with the version from boot... if we could get rid of groovy-all we'd no longer need this
-    jooq             : "3.13.6",
+    jooq             : "3.14.4",
     jsch             : "0.1.54",
     jschAgentProxy   : "0.0.9",
     protobuf         : "3.9.1",
     okhttp           : "2.7.5", // CVE-2016-2402
     okhttp3          : "3.14.9",
-    openapi          : "1.3.9", // this needs to be kept in sync with spring boot as it pulls in the spring-boot-dependencies BOM
-    resilience4j     : "1.0.0",
+    openapi          : "1.5.2", // this needs to be kept in sync with spring boot as it pulls in the spring-boot-dependencies BOM
+    resilience4j     : "1.7.0",
     retrofit         : "1.9.0",
     retrofit2        : "2.8.1",
     spectator        : "1.0.6",
     spek             : "1.1.5",
     spek2            : "2.0.9",
-    springBoot       : "2.3.12.RELEASE",
-    springCloud      : "Hoxton.SR4",
-    springfoxSwagger : "2.9.2",
-    swagger          : "1.5.20", //this should stay in sync with what springfoxSwagger expects
+    spring           : "5.3.3", // this should be kept in sync with spring-boot / removed once the need for a version override is gone
+    springBoot       : "2.4.2",
+    springCloud      : "Hoxton.SR6",
+    springSecurity   : "5.4.2",
+    springfoxSwagger : "3.0.0",
+    swagger          : "2.1.2", //this should stay in sync with what springfoxSwagger expects
     // tomcat (v9.0.31) was included via spring boot and upgrading spring boot
     // from 2.2.5.RELEASE (tomcat v9.0.31 used here) to 2.5.0 (tomcat v9.0.48)
     // makes a few breaking changes, requires adding new dependencies, and
     // changing code. So instead updating tomcat to v9.0.48 as a workaround
     // until we move spring boot to at least v2.5.0.
-    tomcat           : "9.0.48"
+    tomcat           : "9.0.63"
   ]
 }
 
@@ -55,15 +57,15 @@ dependencies {
   //kotlinVersion comes from gradle.properties since we have kotlin code in
   // this project and need to configure gradle plugins etc.
   api(platform("org.jetbrains.kotlin:kotlin-bom:$kotlinVersion"))
-  api(platform("org.junit:junit-bom:5.6.3"))
-  api(platform("com.fasterxml.jackson:jackson-bom:2.12.3"))
+  api(platform("org.junit:junit-bom:5.7.0"))
+  api(platform("com.fasterxml.jackson:jackson-bom:2.13.3"))
   api(platform("io.zipkin.brave:brave-bom:${versions.brave}"))
   api(platform("org.springframework.boot:spring-boot-dependencies:${versions.springBoot}"))
   api(platform("com.amazonaws:aws-java-sdk-bom:${versions.aws}"))
   api(platform("org.springframework.cloud:spring-cloud-dependencies:${versions.springCloud}"))
   api(platform("io.strikt:strikt-bom:0.31.0"))
   api(platform("org.spockframework:spock-bom:1.3-groovy-2.5"))
-  api(platform("com.oracle.oci.sdk:oci-java-sdk-bom:1.5.17"))
+  api(platform("com.oracle.oci.sdk:oci-java-sdk-bom:1.27.1"))
   api(platform("org.testcontainers:testcontainers-bom:1.16.2"))
   api(platform("com.google.protobuf:protobuf-bom:${versions.protobuf}"))
   api(platform("io.arrow-kt:arrow-stack:${versions.arrow}"))
@@ -141,7 +143,7 @@ dependencies {
     api("io.mockk:mockk:1.10.5")
     api("io.springfox:springfox-swagger-ui:${versions.springfoxSwagger}")
     api("io.springfox:springfox-swagger2:${versions.springfoxSwagger}")
-    api("io.swagger:swagger-annotations:${versions.swagger}")
+    api("io.swagger.core.v3:swagger-annotations:${versions.swagger}")
     api("javax.annotation:javax.annotation-api:1.3.2")
     api("javax.xml.bind:jaxb-api:2.3.1")
     api("mysql:mysql-connector-java:8.0.20")
@@ -161,6 +163,7 @@ dependencies {
     api("org.jetbrains.spek:spek-subject-extension:${versions.spek}")
     api("org.jooq:jooq:${versions.jooq}")
     api("org.jooq:jooq-kotlin:${versions.jooq}")
+    api("org.jsoup:jsoup:1.14.2")
     api("org.objenesis:objenesis:2.5.1")
     api("org.pf4j:pf4j:3.2.0")
     api("org.pf4j:pf4j-update:2.3.0")
@@ -168,8 +171,6 @@ dependencies {
     api("org.springdoc:springdoc-openapi-kotlin:${versions.openapi}")
     api("org.springframework.boot:spring-boot-configuration-processor:${versions.springBoot}")
     api("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.5.RELEASE")
-    api("org.springframework.security.extensions:spring-security-saml-dsl-core:1.0.5.RELEASE")
-    api("org.springframework.security.extensions:spring-security-saml2-core:1.0.9.RELEASE")
     api("org.testng:testng:7.4.0") // TODO: remove this with upgrade of spring-boot version to 2.5.0 or with upgrade of groovy-all to 3.0.8
     api("org.threeten:threeten-extra:1.0")
     api("org.apache.tomcat.embed:tomcat-embed-core:${versions.tomcat}")
